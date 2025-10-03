@@ -1,0 +1,16 @@
+{
+    "java.project.sourcePaths": [
+        "ListaEstatica\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "ListaEstatica\\lib\\apiguardian-api-1.1.2.jar",
+        "ListaEstatica\\lib\\junit-jupiter-api-5.10.2.jar",
+        "ListaEstatica\\lib\\junit-jupiter-engine-5.10.2.jar",
+        "ListaEstatica\\lib\\junit-platform-commons-1.10.2.jar",
+        "ListaEstatica\\lib\\junit-platform-console-1.10.2.jar",
+        "ListaEstatica\\lib\\junit-platform-console-standalone-1.10.0.jar",
+        "ListaEstatica\\lib\\junit-platform-launcher-1.10.2.jar",
+        "ListaEstatica\\lib\\opentest4j-1.3.0.jar"
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
+}

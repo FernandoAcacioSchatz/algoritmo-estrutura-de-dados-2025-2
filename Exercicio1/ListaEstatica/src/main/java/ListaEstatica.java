@@ -1,0 +1,128 @@
+package main.java;
+
+public class ListaEstatica {
+
+    private int[] info;
+    private int tamanho;
+
+
+    public ListaEstatica() {
+        setInfo(new int[10]);
+        setTamanho(0);
+    }
+
+    private void redimencionar() {
+
+        int novoTamanho = getTamanho() +10;
+        int[] novoVetor = new int[novoTamanho];
+
+        for(int i = 0; i< getTamanho(); i++) {
+            novoVetor[i] = getInfo()[i];
+        }
+
+        setInfo(novoVetor);
+
+    }
+
+    public void inserir(int valor) {
+        if(getTamanho() == getInfo().length) {
+            redimencionar();
+        }
+
+        getInfo()[getTamanho()] = valor;
+        setTamanho(getTamanho() + 1);
+
+    }
+    public void exibir() {
+        
+        for(int i= 0; i < getTamanho(); i++)  {
+            System.out.println(getInfo()[i]);
+        }
+    }
+    public int buscar(int valor){
+
+        for(int i = 0; i < getTamanho(); i++) {
+            int aux = getInfo()[i];
+
+            if(aux == valor) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void retirar(int valor) {
+
+        int posicao = buscar(valor);
+
+        if(posicao == -1){
+            return;
+        }
+
+        for(int i = posicao + 1; i < getTamanho(); i++) {
+            int aux = getInfo()[i];
+            getInfo()[i - 1] = aux;
+        }
+
+        setTamanho(getTamanho() - 1);
+
+    }
+
+    public void liberar() {
+
+        int[] novoVetor = new int[10];
+        setTamanho(0);
+        setInfo(novoVetor);
+
+    }
+    public int obterElemento(int posicao) throws IndexOutOfBoundsException{
+
+        if(posicao > getTamanho()) {
+            throw new IndexOutOfBoundsException(
+                "Índice " + posicao + " fora dos limitos para comprimento " + getTamanho());
+        }
+
+        int valor = getInfo()[posicao];
+        return valor;
+    }
+
+    public boolean estaVazia() {
+        return getTamanho() == 0;
+
+    }
+
+    
+    
+
+   public String toString() {
+		String valor = "";
+
+		for (int i = 0; i < getTamanho(); i++) {
+			valor += getInfo()[i];
+
+			if (i != getTamanho() - 1) {
+				valor += ",";
+			}
+
+		}
+
+		return valor;
+	}
+
+    public int[] getInfo() {
+		return info;
+	}
+
+    public void setInfo(int[] info) {
+        this.info = info;
+    }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
+    }
+
+}
